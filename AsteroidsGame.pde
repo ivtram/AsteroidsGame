@@ -26,7 +26,7 @@ public void keyPressed()
 {
   if (key == 'w') 
   {
-    bob.accelerate(0.2);
+    bob.accelerate(0.5);
   }
   if (key == 'a')
   {
@@ -38,7 +38,15 @@ public void keyPressed()
   }
   if (key == 's')
   {
-    bob.accelerate(-0.2);
+    bob.accelerate(-0.5);
+  }
+  if (key == '1')
+  {
+    bob.myXspeed = 0;
+    bob.myYspeed = 0;
+    bob.myCenterX = (int)(Math.random()*390);
+    bob.myCenterY = (int)(Math.random()*390);
+    bob.myPointDirection = (int)(Math.random()*360);
   }
 }
 
