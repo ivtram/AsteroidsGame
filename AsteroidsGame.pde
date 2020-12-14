@@ -19,7 +19,6 @@ public void setup()
 }
 public void draw() 
 {
-  //your code here
   background(0);
   for (int i = 0; i < spark.length; i++)
   {
@@ -35,18 +34,17 @@ public void draw()
     {
       rock.remove(j);
     }
-  }
-  for (int k = 0; k < shoot.size(); k++)
-  {
-    shoot.get(k).show();
-    shoot.get(k).move();
-     if (dist(shoot.get(k).getX(), shoot.get(k).getY(), rock.get(k).getX(), rock.get(k).getY()) < 20)
+    for (int k = 0; k < shoot.size(); k++)
     {
-      shoot.remove(k);
-      rock.remove(k);
+      shoot.get(k).show();
+      shoot.get(k).move();
+      if (dist(shoot.get(k).getX(), shoot.get(k).getY(), rock.get(k).getX(), rock.get(k).getY()) < 20)
+      {
+        shoot.remove(k);
+        rock.remove(j);
+      }
     }
   }
-  
 }
 public void keyPressed()
 {
