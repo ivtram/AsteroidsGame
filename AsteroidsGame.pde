@@ -1,6 +1,7 @@
 Spaceship bob = new Spaceship();
 Star [] spark = new Star[200];
 ArrayList <Asteroid> rock = new ArrayList <Asteroid>();
+ArrayList <Bullet> shoot = new ArrayList <Bullet>();
 public void setup() 
 {
   size(600, 600);
@@ -29,10 +30,20 @@ public void draw()
   for (int j = 0; j <rock.size(); j++)
   {
     rock.get(j).show();
-    rock.get(j).move();
+    rock.get(j).move(); 
     if (dist(rock.get(j).getX(), rock.get(j).getY(), bob.getX(), bob.getY())< 20)
     {
       rock.remove(j);
+    }
+  }
+  for (int k = 0; k < shoot.size(); k++)
+  {
+    shoot.get(k).show();
+    shoot.get(k).move();
+     if (dist(shoot.get(k).getX(), shoot.get(k).getY(), rock.get(k).getX(), rock.get(k).getY()) < 20)
+    {
+      shoot.remove(k);
+      rock.remove(k);
     }
   }
   
@@ -63,5 +74,8 @@ public void keyPressed()
     bob.myCenterY = (int)(Math.random()*590);
     bob.myPointDirection = (int)(Math.random()*360);
   }
+  if (key == ' ')
+  {
+    shoot.add(new Bullet(bob));
+  }
 }
-
